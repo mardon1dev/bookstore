@@ -5,10 +5,7 @@ export const GlobalStateContext = createContext();
 export const GlobalStateProvider = ({ children }) => {
 
     const [liked, setLiked] = useState(false);
-    const [likedCount, setLikedCount] = useState(0);
-
     const [saved, setSaved] = useState(false);
-    const [savedCount, setSavedCount] = useState(0);
 
     const [cartList, setCartList] = useState(() => {
         const savedCartList = localStorage.getItem('cartList');

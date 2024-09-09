@@ -61,12 +61,6 @@ const Header = () => {
                 }>
                     <LuUser2 size={24} />
                 </Link>
-                {/* <a className="md:w-[50px] w-[30px] md:h-[50px] h-[30px] rounded-lg flex items-center justify-center">
-                    <FaRegHeart size={24} />
-                </a>
-                <a className="md:w-[50px] w-[30px] md:h-[50px] h-[30px] rounded-lg flex items-center justify-center">
-                    <LuShoppingCart size={24} />
-                </a> */}
             </div>
         </nav>
         </div>

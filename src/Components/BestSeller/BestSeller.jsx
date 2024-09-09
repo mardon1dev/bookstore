@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 import { Link } from 'react-router-dom';
 import { GlobalStateContext } from '../Context/Context';
 const BestSeller = () => {
-    const API_KEY = 'AIzaSyBc2AyeAY2r5zwIlgz_aZPD-wVVMKhcNlY'; 
+    const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY; 
     const searchTerm = 'best sellers 2024'; 
 
     const { addToLiked, addToCart } = useContext(GlobalStateContext); 

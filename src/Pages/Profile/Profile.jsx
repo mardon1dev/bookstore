@@ -31,10 +31,8 @@ const Profile = () => {
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Create a reference for the image in Firebase storage
       const imgRef = ref(storage, `files/${v4()}`);
 
-      // Upload the image file to Firebase storage
       await uploadBytes(imgRef, file)
         .then( async() => {
           const downloadURL = await getDownloadURL(imgRef);
@@ -43,13 +41,11 @@ const Profile = () => {
           const user = auth.currentUser;
           const docRef = doc(db, "users", user.uid);
           await updateDoc(docRef, { photoURL: downloadURL });
-          // Optionally, retrieve the download URL if you want to use it
-          // You can update Firebase profile photoURL with this URL later
+
         })
         .catch((error) => {
         });
 
-      // Display the image preview
       const imageUrl = URL.createObjectURL(file);
       setSelectedImage(imageUrl);
     }
@@ -70,18 +66,18 @@ const Profile = () => {
   }
 
   const handleSaveAbout = async () => {
-    const user = auth.currentUser; // Get the authenticated user
+    const user = auth.currentUser; 
     if (user) {
-      const docRef = doc(db, "users", user.uid); // Use user's UID from auth
-      await updateDoc(docRef, { about: aboutText }); // Save About Me text to Firestore
-      setAbout(false); // Exit edit mode after saving
+      const docRef = doc(db, "users", user.uid); 
+      await updateDoc(docRef, { about: aboutText }); 
+      setAbout(false); 
     } else {
       console.error("No user is authenticated.");
     }
   };
 
   const handleAboutChange = (e) => {
-    setAboutText(e.target.value); // Update About Me input value
+    setAboutText(e.target.value); 
   };
 
   const handleLogOut = async () =>{
@@ -89,7 +85,6 @@ const Profile = () => {
       await auth.signOut();
       window.location.href ="/login"
     } catch (error) {
-      // console.log(error);
     }
   }
 

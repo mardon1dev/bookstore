@@ -6,7 +6,7 @@ import { GlobalStateContext } from '../../Components/Context/Context';
 
 
 const SearchBooks = () => {
-    const API_KEY = 'AIzaSyBc2AyeAY2r5zwIlgz_aZPD-wVVMKhcNlY';
+    const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY; 
     const location = useLocation();
     const { addToLiked, addToCart} = useContext(GlobalStateContext)
     const query = new URLSearchParams(location.search).get('query') || JSON.parse(localStorage.getItem("query")); 

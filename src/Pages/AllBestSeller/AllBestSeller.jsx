@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from "react-icons/io";
 import { GlobalStateContext } from '../../Components/Context/Context';
 const AllBestSeller = () => {
-    const API_KEY = 'AIzaSyBc2AyeAY2r5zwIlgz_aZPD-wVVMKhcNlY'; 
+    const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY; 
     const searchTerm = 'best sellers 2024';
 
     const { addToLiked, addToCart } = useContext(GlobalStateContext); 
@@ -85,41 +85,6 @@ const AllBestSeller = () => {
                 <button onClick={handleMore} className='text-[#EF6B4A] mx-auto font-bold text-[20px] mt-5 border border-[#ef6b4a] py-3 px-4 hover:bg-[#ef6b4a] hover:text-white' href="#">{
                     viewMore ? 'View Less' : 'View More'
                 }</button>
-                {/* <div className="liked-section mt-10 w-full">
-                        <h3 className='text-xl font-bold'>Liked Books</h3>
-                        <div className='grid lg:grid-cols-4 sm:grid-cols-2 gap-4 mt-8'>
-                        {likedList.length > 0 ? (
-                            likedList.map((book, index) => (
-                                <Card 
-                                key={index} 
-                                book={book} 
-                                handleAddToLiked={handleAddToLiked} 
-                                handleAddToCart={handleAddToCart} 
-                            />
-                            ))
-                        ) : (
-                            <p>No liked books</p>
-                        )}
-                        </div>
-                    </div>
-
-                    <div className="cart-section mt-10 w-full">
-                        <h3 className='text-xl font-bold'>Cart Books</h3>
-                        <div className='grid lg:grid-cols-4 sm:grid-cols-2 gap-4 mt-8'>
-                        {cartList.length > 0 ? (
-                            cartList.map((book, index) => (
-                                <Card 
-                                key={index} 
-                                book={book} 
-                                handleAddToLiked={handleAddToLiked} 
-                                handleAddToCart={handleAddToCart} 
-                            />
-                            ))
-                        ) : (
-                            <p>No books in the cart</p>
-                        )}
-                        </div>
-                    </div> */}
             </div>
         </div>
     </section>
