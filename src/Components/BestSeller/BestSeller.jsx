@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { GlobalStateContext } from '../Context/Context';
 const BestSeller = () => {
     const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY; 
+    // const API_KEY = ""
     console.log(API_KEY);
     const searchTerm = 'best sellers 2024'; 
 
@@ -21,6 +22,7 @@ const BestSeller = () => {
             fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchTerm)}&key=${API_KEY}`)
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 if (data.items) {
                     setAllBooks(data.items);
                 } else {
